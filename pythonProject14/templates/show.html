@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">PRODUCT NAME</th>
+      <th scope="col">PRICE</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for row in rows %}
+    <tr>
+      <th scope="row">{{row['id']}}</th>
+      <td>{{row['PRONAME']}}</td>
+      <td>{{row['PRICE']}}</td>
+      <td><div class="btn-group" role="group" aria-label="Basic example">
+  <a href="#" class="btn btn-primary btn-sm">Show</a>
+  <a href="/edit/{{row['id']}}" class="btn btn-info btn-sm">Edit</a>
+  <a href="/delete/{{row['id']}}" class="btn btn-danger btn-sm">Delete</a>
+</div></td>
+    </tr>
+
+
+{% endfor %}
+      </tbody>
+</table>
+    {% endblock %}
+</body>
+</html>
